@@ -15,5 +15,5 @@ async def get_bookings() -> list[SBooking]:
 
 
 @router.get("/{id}")
-def get_booking_by_id():
-    pass
+async def get_booking_by_id(booking_id: int) -> SBooking:
+    return await BookingDAO.find_by_id(booking_id)
